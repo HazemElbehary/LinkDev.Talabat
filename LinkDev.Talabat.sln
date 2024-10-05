@@ -33,6 +33,11 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "LinkDev.Talabat.Client", "L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkDev.Talabat.Dashboard", "LinkDev.Talabat.Dashboard\LinkDev.Talabat.Dashboard.csproj", "{85A4A986-4BE7-4AB4-83C8-A17715DAD68E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "What He Does", "What He Does", "{479A4DFD-DBAF-4776-9631-852ABB293C1A}"
+	ProjectSection(SolutionItems) = preProject
+		File.txt = File.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +92,7 @@ Global
 		{C1E793F8-8FC9-4633-A8C6-63255ADA1516} = {C13C8E55-FA63-465B-B0C9-F38FB01E4532}
 		{1B564DA4-2353-47D6-A377-E477850E2674} = {29D19EB3-AE4E-4816-8916-F3B2072FE3F7}
 		{85A4A986-4BE7-4AB4-83C8-A17715DAD68E} = {EF8AB24D-3BC7-4315-A5E3-3E085AF31334}
+		{479A4DFD-DBAF-4776-9631-852ABB293C1A} = {33183255-8A32-4EA6-8275-E258C97A4897}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C841D3DE-8E62-4F6E-B543-2871B928DABA}

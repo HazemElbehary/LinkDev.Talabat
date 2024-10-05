@@ -1,0 +1,1 @@
+1. Add Entity BaseEntity (Id, CreatedBy, CreatedOn, LastModifiedOn, LastModifiedBy)
