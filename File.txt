@@ -1,1 +1,9 @@
 1. Add Entity BaseEntity (Id, CreatedBy, CreatedOn, LastModifiedOn, LastModifiedBy)
+
+------------------
+
+1. Add Entity ProductBrand(Name)
+2. Add Entity ProductCategory(Name)
+3. Add Entity Product(Name, Description, PictureUrl, Price)
+
+4. Relationship Between Product and Brand, Product and Category
