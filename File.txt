@@ -25,3 +25,13 @@
 
 1. Create Class StoreContxtSeed
 2. Seed Brands, Categories, Products
+
+------------------
+
+1. IStoreContextInitializer
+	InitializeAsync, SeedAsync
+
+2. StoreContextInitializer
+
+3. InitializerExtensions
+	InitializeStoreContext

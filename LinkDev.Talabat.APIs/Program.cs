@@ -1,5 +1,8 @@
+using LinkDev.Talabat.APIs.Extensions;
 using LinkDev.Talabat.Core.Domain;
+using LinkDev.Talabat.Core.Domain.Contracts;
 using LinkDev.Talabat.Core.Domain.Data;
+using LinkDev.Talabat.Infrastructure.Persistence.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,8 +29,8 @@ namespace LinkDev.Talabat.APIs
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddDomainServices(builder.Configuration);
-
+            builder.Services.AddPresistenceServices(builder.Configuration);
+            
 			#endregion
 
 			var app = builder.Build();
@@ -51,32 +54,10 @@ namespace LinkDev.Talabat.APIs
             //         }
             #endregion
 
-            #region Update DataBase
+            #region DataBase Initialization
 
-            
-
-            var scope = app.Services.CreateScope();
-            var services = scope.ServiceProvider;
-
-			using var context = services.GetRequiredService<StoreContext>();
-            var Logger = services.GetRequiredService<ILogger<Program>>();
-
-            
-
-            try
-            {
-				var Migrations = await context.Database.GetPendingMigrationsAsync();
-
-				if(Migrations.Any())
-				    await context.Database.MigrateAsync();
-                if(context.Brands.Count() == 0)
-                    await StoreContxtSeedAsync.Seed(context);
-			}
-			catch (Exception ex)
-            {
-                Logger.LogError(ex, "Sorry, An Error Occured");
-            }
-
+            await app.InitializeStoreContext();
+			
             #endregion
 
             #region Configure MiddleWares

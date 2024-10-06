@@ -1,9 +1,9 @@
-﻿using LinkDev.Talabat.Core.Domain.ProductNS;
+﻿using LinkDev.Talabat.Core.Domain.Entities.Product;
 using Microsoft.EntityFrameworkCore;
 
 namespace LinkDev.Talabat.Core.Domain.Data
 {
-	public class StoreContext : DbContext
+    public class StoreContext : DbContext
 	{
         public StoreContext(DbContextOptions options) : base(options)
         {

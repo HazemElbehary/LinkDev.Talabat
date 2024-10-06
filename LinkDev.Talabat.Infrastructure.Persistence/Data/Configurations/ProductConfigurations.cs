@@ -1,10 +1,10 @@
-﻿using LinkDev.Talabat.Core.Domain.ProductNS;
+﻿using LinkDev.Talabat.Core.Domain.Entities.Product;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace LinkDev.Talabat.Core.Domain.Data.Configurations
 {
-	internal class ProductConfigurations : BaseConfigurations<Product, int>
+    internal class ProductConfigurations : BaseConfigurations<Product, int>
 	{
 		public override void Configure(EntityTypeBuilder<Product> builder)
 		{
