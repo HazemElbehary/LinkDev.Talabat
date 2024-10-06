@@ -1,30 +1,22 @@
-﻿using LinkDev.Talabat.Core.Domain.Contracts;
+﻿using LinkDev.Talabat.Core.Domain.Common;
+using LinkDev.Talabat.Core.Domain.Contracts;
 using LinkDev.Talabat.Core.Domain.Data;
-using LinkDev.Talabat.Core.Domain.Entities.Product;
 using LinkDev.Talabat.Core.Domain.UnitOfWork;
 using LinkDev.Talabat.Infrastructure.Persistence.Repositories;
+using System.Collections.Concurrent;
 
 namespace LinkDev.Talabat.Infrastructure.Persistence.UnitOfWork
 {
 	public class UnitOfWork : IUnitOfWork ,IAsyncDisposable
 	{
 		private readonly StoreContext _dbContext;
-		private readonly Lazy<IGenericRepository<Product, int>> productRepository;
-		private readonly Lazy<IGenericRepository<ProductBrand, int>> brandRepository;
-		private readonly Lazy<IGenericRepository<ProductCategory, int>> categoryRepository;
-
+		ConcurrentDictionary<string, object> Repositories;
 
 		public UnitOfWork(StoreContext context)
         {
 			_dbContext = context;
-			productRepository = new Lazy<IGenericRepository<Product, int>>(new GenericRepository<Product, int>(_dbContext));
-			brandRepository = new Lazy<IGenericRepository<ProductBrand, int>>(new GenericRepository<ProductBrand, int>(_dbContext));
-			categoryRepository = new Lazy<IGenericRepository<ProductCategory, int>>(new GenericRepository<ProductCategory, int>(_dbContext));
+			Repositories = new ();
 		}
-
-		public IGenericRepository<Product, int> ProductRepository  => productRepository.Value;
-		public IGenericRepository<ProductBrand, int> BrandRepository => brandRepository.Value; 
-		public IGenericRepository<ProductCategory, int> CategoryRepository => categoryRepository.Value;
 
 		public async Task<int> Complete()
 		{
@@ -34,6 +26,13 @@ namespace LinkDev.Talabat.Infrastructure.Persistence.UnitOfWork
 		public async ValueTask DisposeAsync()
 		{
 			await _dbContext.DisposeAsync();
+		}
+
+		public IGenericRepository<TEntity, TKey> GetRepository<TEntity, TKey>(string RepositryName)
+			where TEntity : BaseEntity<TKey>
+			where TKey : IEquatable<TKey>
+		{
+			return (GenericRepository<TEntity, TKey>)Repositories.GetOrAdd(RepositryName, new GenericRepository<TEntity, TKey>(_dbContext));
 		}
 	}
 }
