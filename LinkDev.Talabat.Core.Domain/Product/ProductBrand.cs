@@ -1,6 +1,6 @@
 ﻿using LinkDev.Talabat.Core.Domain.Common;
 
-namespace LinkDev.Talabat.Core.Domain.Product
+namespace LinkDev.Talabat.Core.Domain.ProductNS
 {
 	public class ProductBrand : BaseEntity<int>
 	{

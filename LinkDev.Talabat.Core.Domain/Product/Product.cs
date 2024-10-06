@@ -1,6 +1,6 @@
 ﻿using LinkDev.Talabat.Core.Domain.Common;
 
-namespace LinkDev.Talabat.Core.Domain.Product
+namespace LinkDev.Talabat.Core.Domain.ProductNS
 {
 	public class Product : BaseEntity<int>
 	{
@@ -15,7 +15,7 @@ namespace LinkDev.Talabat.Core.Domain.Product
 
 
         // Navigation Properties
-        public virtual ProductBrand? Prand { get; set; }
+        public virtual ProductBrand? Brand { get; set; }
         public virtual ProductCategory? Category { get; set; }
     }
 }

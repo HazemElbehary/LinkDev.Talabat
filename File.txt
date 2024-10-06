@@ -7,3 +7,15 @@
 3. Add Entity Product(Name, Description, PictureUrl, Price)
 
 4. Relationship Between Product and Brand, Product and Category
+
+------------------
+
+1. Create DbContext + DbSets
+2. Create Class To Add Services To DI Cont. IN Persistence Layer
+3. Add BaseConfigurations Class
+4. Add Configurations Classes (CreatedBy => HasDefaultValue: GetDate.UTCNow )
+5. Create AssemblyInformation Class
+6. Add Migration
+
+------------------
+

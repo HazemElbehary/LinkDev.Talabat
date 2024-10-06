@@ -1,3 +1,5 @@
+using LinkDev.Talabat.Core.Domain;
+
 namespace LinkDev.Talabat.APIs
 {
     public class Program
@@ -13,11 +15,13 @@ namespace LinkDev.Talabat.APIs
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen(); 
-            
-            #endregion
+            builder.Services.AddSwaggerGen();
 
-            var app = builder.Build();
+            builder.Services.AddDomainServices(builder.Configuration);
+
+			#endregion
+
+			var app = builder.Build();
 
             #region Configure MiddleWares
             
