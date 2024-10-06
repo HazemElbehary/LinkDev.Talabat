@@ -35,3 +35,13 @@
 
 3. InitializerExtensions
 	InitializeStoreContext
+
+-------------------
+
+1. Create Interface IGenericRepository
+	GetAllAsync(withTracking: bool), GetAsync, AddAsync, Update, Delete
+
+2. Create Class GenericRepository
+
+-------------------
+
