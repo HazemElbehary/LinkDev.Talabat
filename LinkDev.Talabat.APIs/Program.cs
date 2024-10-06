@@ -53,11 +53,15 @@ namespace LinkDev.Talabat.APIs
 
             #region Update DataBase
 
+            
+
             var scope = app.Services.CreateScope();
             var services = scope.ServiceProvider;
 
 			using var context = services.GetRequiredService<StoreContext>();
             var Logger = services.GetRequiredService<ILogger<Program>>();
+
+            
 
             try
             {
@@ -65,6 +69,8 @@ namespace LinkDev.Talabat.APIs
 
 				if(Migrations.Any())
 				    await context.Database.MigrateAsync();
+                if(context.Brands.Count() == 0)
+                    await StoreContxtSeedAsync.Seed(context);
 			}
 			catch (Exception ex)
             {

@@ -20,3 +20,8 @@
 ------------------
 
 1. Update DataBase From Program "Main" 
+
+------------------
+
+1. Create Class StoreContxtSeed
+2. Seed Brands, Categories, Products
