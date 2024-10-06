@@ -45,3 +45,10 @@
 
 -------------------
 
+1. Create Interface IUnitOFWork
+	CompleteAsync()
+2. Create Class IUintOFWork
+	CompleteAsync(), DisposeAsync()
+
+-------------------
+
