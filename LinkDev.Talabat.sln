@@ -35,10 +35,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinkDev.Talabat.Dashboard",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "What He Does", "What He Does", "{479A4DFD-DBAF-4776-9631-852ABB293C1A}"
 	ProjectSection(SolutionItems) = preProject
-		File.txt = File.txt
+		Session 02.txt = Session 02.txt
+		Session 03.txt = Session 03.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkDev.Talabat.Infrastructure", "LinkDev.Talabat.Infrastructure\LinkDev.Talabat.Infrastructure.csproj", "{507B5D32-6793-4DF7-A1E7-9DAED5BCEF18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinkDev.Talabat.Infrastructure", "LinkDev.Talabat.Infrastructure\LinkDev.Talabat.Infrastructure.csproj", "{507B5D32-6793-4DF7-A1E7-9DAED5BCEF18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

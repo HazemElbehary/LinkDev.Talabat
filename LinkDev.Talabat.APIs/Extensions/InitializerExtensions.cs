@@ -6,7 +6,7 @@ namespace LinkDev.Talabat.APIs.Extensions
 	{
 		public async static Task<WebApplication> InitializeStoreContext(this WebApplication app)
 		{
-			using var scope = app.Services.CreateScope();
+			using var scope = app.Services.CreateAsyncScope();
 			var services = scope.ServiceProvider;
 
 			var storeContextInitializer = services.GetRequiredService<IStoreContextInitializer>();
