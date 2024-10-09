@@ -27,3 +27,10 @@
 
 4. DependancyInjection "Application Layer" => AddApplicationServices
 5. Mapping => MappingProfile
+
+---------------------------
+
+1. IServiceManager, ServiceManager
+
+---------------------------
+

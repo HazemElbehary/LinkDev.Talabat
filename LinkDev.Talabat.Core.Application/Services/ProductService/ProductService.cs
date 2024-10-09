@@ -4,7 +4,7 @@ using LinkDev.Talabat.Core.Application.Abstraction.Services.Product;
 using LinkDev.Talabat.Core.Domain.Entities.Product;
 using LinkDev.Talabat.Core.Domain.NIUnitOfWork;
 
-namespace LinkDev.Talabat.Core.Application.Services.ProductService
+namespace LinkDev.Talabat.Core.Application.Services.ProductServiceNS
 {
 	internal class ProductService(IUnitOfWork unitOfWork, Mapper mapper) : IProductService
 	{
