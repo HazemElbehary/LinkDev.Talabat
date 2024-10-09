@@ -48,3 +48,7 @@
 ----------------------------
 
 1. Load RelatedData
+
+----------------------------
+
+1. Create EndPoint GetProduct() 
