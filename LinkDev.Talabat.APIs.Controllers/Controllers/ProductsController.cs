@@ -14,7 +14,7 @@ namespace LinkDev.Talabat.APIs.Controllers.Controllers
 			return Ok(Products);
 		}
 
-		[HttpGet("{Id: int}")]
+		[HttpGet("{Id:int}")]
 		public async Task<ActionResult<ProductToReturnDto>> GetProduct(int id)
 		{
 			var Product = await serviceManager.ProductService.GetProductAsync(id);
@@ -24,5 +24,22 @@ namespace LinkDev.Talabat.APIs.Controllers.Controllers
 
 			return Ok(Product);
 		}
+
+
+		[HttpGet("brands")]
+		public async Task<ActionResult<IEnumerable<BrandToReturnDto>>> GetBrands()
+		{
+			var Brands = await serviceManager.ProductService.GetBrandsAsync();
+			return Ok(Brands);
+		}
+
+
+		[HttpGet("categories")]
+		public async Task<ActionResult<IEnumerable<CategoryToReturnDto>>> GetCategories()
+		{
+			var Categories = await serviceManager.ProductService.GetCategoriesAsync();
+			return Ok(Categories);
+		}
+
 	}
 }
