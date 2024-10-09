@@ -18,8 +18,8 @@ namespace LinkDev.Talabat.APIs
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddHttpContextAccessor();            
             builder.Services.AddPresistenceServices(builder.Configuration);
-            
 			#endregion
 
 			var app = builder.Build();

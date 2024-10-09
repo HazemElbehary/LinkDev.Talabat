@@ -3,3 +3,8 @@
 
 -------------------------
 
+1. Create CustomSaveChangesInterceptor => set values of (CreatedBy, LastModifiedBy, CreatedIn, LastModifiedIn)
+2. ILoggedInUserService, LoggedInUserService
+
+-------------------------
+
