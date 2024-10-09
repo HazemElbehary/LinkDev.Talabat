@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using LinkDev.Talabat.Core.Application.Abstraction.DTOs;
 using LinkDev.Talabat.Core.Application.Abstraction.Services.Product;
-using LinkDev.Talabat.Core.Application.MappingProfile;
 using LinkDev.Talabat.Core.Domain.Entities.Product;
 using LinkDev.Talabat.Core.Domain.NIUnitOfWork;
 
@@ -9,30 +8,30 @@ namespace LinkDev.Talabat.Core.Application.Services.ProductServiceNS
 {
 	internal class ProductService(IUnitOfWork unitOfWork, Mapper mapper) : IProductService
 	{
-		public IEnumerable<ProductToReturnDto> GetProductsAsync()
+		public async Task<IEnumerable<ProductToReturnDto>> GetProductsAsync()
 		{
-			var Products = unitOfWork.GetRepository<Product, int>().GetAllAsync();
+			var Products = await unitOfWork.GetRepository<Product, int>().GetAllAsync();
 
 			return mapper.Map<IEnumerable<ProductToReturnDto>>(Products);
 		}
 
-		public ProductToReturnDto GetProductAsync(int id)
+		public async Task<ProductToReturnDto> GetProductAsync(int id)
 		{
-			var Product = unitOfWork.GetRepository<Product, int>().GetAsync(id);
+			var Product = await unitOfWork.GetRepository<Product, int>().GetAsync(id);
 
 			return mapper.Map<ProductToReturnDto>(Product);
 		}
 
-		public IEnumerable<CategoryToReturnDto> GetCategoriesAsync()
+		public async Task<IEnumerable<CategoryToReturnDto>> GetCategoriesAsync()
 		{
-			var Categories = unitOfWork.GetRepository<ProductCategory, int>().GetAllAsync();
+			var Categories = await unitOfWork.GetRepository<ProductCategory, int>().GetAllAsync();
 
 			return mapper.Map<IEnumerable<CategoryToReturnDto>>(Categories);
 		}
 
-		public IEnumerable<BrandToReturnDto> GetBrandsAsync()
+		public async Task<IEnumerable<BrandToReturnDto>> GetBrandsAsync()
 		{
-			var Brnads = unitOfWork.GetRepository<ProductBrand, int>().GetAllAsync();
+			var Brnads = await unitOfWork.GetRepository<ProductBrand, int>().GetAllAsync();
 
 			return mapper.Map<IEnumerable<BrandToReturnDto>>(Brnads);
 		}

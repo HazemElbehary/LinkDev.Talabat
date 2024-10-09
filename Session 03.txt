@@ -44,3 +44,7 @@
 
 2. Add Collection in postman "Session 02"
 	1. GetProducts()
+
+----------------------------
+
+1. Load RelatedData
