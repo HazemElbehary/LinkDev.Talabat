@@ -52,3 +52,25 @@
 ----------------------------
 
 1. Create EndPoint GetProduct() 
+
+----------------------------
+
+1. Create ISpecifications "Domain"  
+   ==> Represent Object Have Property For Each Spec "LINQ Operator Expression 'Parameter' "
+
+2. Create BaseISpecifications "Domain" ==> "Object Will Be Send To GetQuery 'LINQ Operators' "
+   ==> Implement ISpecifications
+
+
+3. Create SpecificationsEvaluator 'static' "Persistence/GenericRepository"
+	1. GetQuery 'static' ==> Take DbSet And ISpecification And Added Specifications To DbSet And Return Query
+
+
+4. GetAllWithSpec "GenericRepository" ==> GetAllAsync But Include RelatedData 'Specifications'
+
+
+5. GetWithSpec "GenericRepository" ==> GetAsync But Include RelatedData 'Specifications'
+
+
+6. ProductWithBrandAndCategorySpecifications "Domin.Specifications.Product"
+   ==> Has Specs OF Product Module

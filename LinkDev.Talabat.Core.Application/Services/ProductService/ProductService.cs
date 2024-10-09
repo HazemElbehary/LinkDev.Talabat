@@ -3,6 +3,8 @@ using LinkDev.Talabat.Core.Application.Abstraction.DTOs;
 using LinkDev.Talabat.Core.Application.Abstraction.Services.Product;
 using LinkDev.Talabat.Core.Domain.Entities.Product;
 using LinkDev.Talabat.Core.Domain.NIUnitOfWork;
+using LinkDev.Talabat.Core.Domain.Specifications.Products;
+using LinkDev.Talabat.Infrastructure.Persistence.Repositories.GenericRepositories;
 
 namespace LinkDev.Talabat.Core.Application.Services.ProductServiceNS
 {
@@ -10,7 +12,9 @@ namespace LinkDev.Talabat.Core.Application.Services.ProductServiceNS
 	{
 		public async Task<IEnumerable<ProductToReturnDto>> GetProductsAsync()
 		{
-			var Products = await unitOfWork.GetRepository<Product, int>().GetAllAsync();
+			var spec = new ProductWithBrandAndCategorySpecifications();
+
+			var Products = await unitOfWork.GetRepository<Product, int>().GetAllWithSpecAsync(spec);
 
 			return mapper.Map<IEnumerable<ProductToReturnDto>>(Products);
 		}

@@ -1,13 +1,13 @@
 ﻿using LinkDev.Talabat.Core.Domain.Common;
-using LinkDev.Talabat.Core.Domain.Contracts;
+using LinkDev.Talabat.Core.Domain.Contracts.GenericRepository;
 using LinkDev.Talabat.Core.Domain.Data;
 using LinkDev.Talabat.Core.Domain.NIUnitOfWork;
-using LinkDev.Talabat.Infrastructure.Persistence.Repositories;
+using LinkDev.Talabat.Infrastructure.Persistence.Repositories.GenericRepositories;
 using System.Collections.Concurrent;
 
 namespace LinkDev.Talabat.Infrastructure.Persistence.FUnitOfWork
 {
-	public class UnitOfWork : IUnitOfWork, IAsyncDisposable
+    public class UnitOfWork : IUnitOfWork, IAsyncDisposable
 	{
 		private readonly StoreContext _dbContext;
 		ConcurrentDictionary<string, object> Repositories;
