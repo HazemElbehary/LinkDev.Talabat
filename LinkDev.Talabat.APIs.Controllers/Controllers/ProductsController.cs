@@ -1,10 +1,10 @@
-﻿using LinkDev.Talabat.Core.Application.Abstraction.DTOs;
+﻿using LinkDev.Talabat.Core.Application.Abstraction.DTOs.Product;
 using LinkDev.Talabat.Core.Application.Abstraction.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LinkDev.Talabat.APIs.Controllers.Controllers
 {
-	public class ProductsController(IServiceManager serviceManager) : BaseApiController
+    public class ProductsController(IServiceManager serviceManager) : BaseApiController
 	{
 
 		[HttpGet]

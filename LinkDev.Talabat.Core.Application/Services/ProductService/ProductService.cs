@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using LinkDev.Talabat.Core.Application.Abstraction.DTOs;
+using LinkDev.Talabat.Core.Application.Abstraction.DTOs.Product;
 using LinkDev.Talabat.Core.Application.Abstraction.Services.Product;
 using LinkDev.Talabat.Core.Domain.Entities.Product;
 using LinkDev.Talabat.Core.Domain.NIUnitOfWork;
@@ -8,7 +8,7 @@ using LinkDev.Talabat.Infrastructure.Persistence.Repositories.GenericRepositorie
 
 namespace LinkDev.Talabat.Core.Application.Services.ProductServiceNS
 {
-	internal class ProductService(IUnitOfWork unitOfWork, Mapper mapper) : IProductService
+    internal class ProductService(IUnitOfWork unitOfWork, Mapper mapper) : IProductService
 	{
 		public async Task<IEnumerable<ProductToReturnDto>> GetProductsAsync()
 		{
