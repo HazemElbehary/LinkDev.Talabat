@@ -36,3 +36,11 @@
 
 1. Separate Controllers in alone Project
 2. Create Class AssemblyInformation
+
+----------------------------
+
+1. Add ProductsController
+	1. GetProducts()
+
+2. Add Collection in postman "Session 02"
+	1. GetProducts()

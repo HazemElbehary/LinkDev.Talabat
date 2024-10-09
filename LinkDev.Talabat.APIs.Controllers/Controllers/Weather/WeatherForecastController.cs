@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 
 namespace LinkDev.Talabat.APIs.Controllers.Controllers.Weather
 {
-    public class WeatherForecastController : BaseController
+    public class WeatherForecastController : BaseApiController
     {
         private static readonly string[] Summaries = new[]
         {

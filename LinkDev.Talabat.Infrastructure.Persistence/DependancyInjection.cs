@@ -17,7 +17,7 @@ namespace LinkDev.Talabat.Core.Domain
 		{
 			service.AddDbContext<StoreContext>(options =>
 			{
-				options.UseSqlServer(configuration.GetConnectionString("StoreConnection"));
+				options.UseLazyLoadingProxies().UseSqlServer(configuration.GetConnectionString("StoreConnection"));
 			});
 
 			service.AddScoped(typeof(IStoreContextInitializer), typeof(StoreContextInitializer));
