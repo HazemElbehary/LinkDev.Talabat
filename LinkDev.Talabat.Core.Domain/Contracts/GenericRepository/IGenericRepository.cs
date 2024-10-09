@@ -11,6 +11,8 @@ namespace LinkDev.Talabat.Core.Domain.Contracts.GenericRepository
 
 		Task<TEntity?> GetAsync(TKey Id);
 
+		Task<TEntity?> GetWithSpecAsync(ISpecifications<TEntity, TKey> spec);
+
         Task AddAsync(TEntity entity);
 
         void Updated(TEntity entity);

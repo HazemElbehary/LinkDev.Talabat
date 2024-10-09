@@ -41,8 +41,11 @@ namespace LinkDev.Talabat.Infrastructure.Persistence.Repositories.GenericReposit
             return await dbContext.Set<TEntity>().FindAsync(Id);
 
 		}
-
-        public async Task AddAsync(TEntity entity)
+		public async Task<TEntity?> GetWithSpecAsync(ISpecifications<TEntity, TKey> spec)
+		{
+			return await SpecificationsEvaluator<TEntity, TKey>.GetQuery(dbContext.Set<TEntity>(), spec).FirstOrDefaultAsync();
+		}
+		public async Task AddAsync(TEntity entity)
         {
             await dbContext.Set<TEntity>().AddAsync(entity);
         }
