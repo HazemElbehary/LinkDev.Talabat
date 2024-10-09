@@ -8,3 +8,22 @@
 
 -------------------------
 
+1. Create IProductService
+	1. GetProductsAsync
+	2. GetProductAsync
+	3. GetBrandsAsync
+	4. GetCategoriesAsync
+
+2. Models >> Create Products
+	1. ProductToReturnDto "AllDataOfProduct"
+	2. BranDto (Id, Name)
+	3. CategoryDto (Id, Name)
+
+3. Create ProductService
+	1. GetProductsAsync
+	2. GetProductAsync
+	3. GetBrandsAsync
+	4. GetCategoriesAsync
+
+4. DependancyInjection "Application Layer" => AddApplicationServices
+5. Mapping => MappingProfile

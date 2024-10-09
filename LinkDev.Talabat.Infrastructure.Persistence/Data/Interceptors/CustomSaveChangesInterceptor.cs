@@ -5,17 +5,17 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace LinkDev.Talabat.Infrastructure.Persistence.Data.Interceptors
 {
-	public class CustomSaveChangesInterceptor(DbContext dbContext, ILoggedInUserService loggedInUserService) : SaveChangesInterceptor
+	public class CustomSaveChangesInterceptor(ILoggedInUserService loggedInUserService) : SaveChangesInterceptor
 	{
 		public override int SavedChanges(SaveChangesCompletedEventData eventData, int result)
 		{
-			SetAuditeData(dbContext);
+			SetAuditeData(eventData.Context);
 			return base.SavedChanges(eventData, result);
 		}
 
 		public override ValueTask<int> SavedChangesAsync(SaveChangesCompletedEventData eventData, int result, CancellationToken cancellationToken = default)
 		{
-			SetAuditeData(dbContext);
+			SetAuditeData(eventData.Context);
 			return base.SavedChangesAsync(eventData, result, cancellationToken);
 		}
 

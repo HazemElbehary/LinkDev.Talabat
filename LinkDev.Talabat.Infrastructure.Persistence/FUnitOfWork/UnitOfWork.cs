@@ -1,11 +1,11 @@
 ﻿using LinkDev.Talabat.Core.Domain.Common;
 using LinkDev.Talabat.Core.Domain.Contracts;
 using LinkDev.Talabat.Core.Domain.Data;
-using LinkDev.Talabat.Core.Domain.UnitOfWork;
+using LinkDev.Talabat.Core.Domain.NIUnitOfWork;
 using LinkDev.Talabat.Infrastructure.Persistence.Repositories;
 using System.Collections.Concurrent;
 
-namespace LinkDev.Talabat.Infrastructure.Persistence.UnitOfWork
+namespace LinkDev.Talabat.Infrastructure.Persistence.FUnitOfWork
 {
 	public class UnitOfWork : IUnitOfWork, IAsyncDisposable
 	{
@@ -28,11 +28,11 @@ namespace LinkDev.Talabat.Infrastructure.Persistence.UnitOfWork
 			await _dbContext.DisposeAsync();
 		}
 
-		public IGenericRepository<TEntity, TKey> GetRepository<TEntity, TKey>(string RepositryName)
+		public IGenericRepository<TEntity, TKey> GetRepository<TEntity, TKey>()
 			where TEntity : BaseEntity<TKey>
 			where TKey : IEquatable<TKey>
 		{
-			return (GenericRepository<TEntity, TKey>)Repositories.GetOrAdd(RepositryName, new GenericRepository<TEntity, TKey>(_dbContext));
+			return (GenericRepository<TEntity, TKey>)Repositories.GetOrAdd(typeof(TEntity).Name, new GenericRepository<TEntity, TKey>(_dbContext));
 		}
 	}
 }

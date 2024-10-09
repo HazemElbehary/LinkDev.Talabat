@@ -1,4 +1,7 @@
 using LinkDev.Talabat.APIs.Extensions;
+using LinkDev.Talabat.APIs.LoggedInUserServices;
+using LinkDev.Talabat.Core.Application.Abstraction.LoggedInUserServices;
+using LinkDev.Talabat.Core.Application.DepaendancyInjection;
 using LinkDev.Talabat.Core.Domain;
 
 namespace LinkDev.Talabat.APIs
@@ -18,8 +21,10 @@ namespace LinkDev.Talabat.APIs
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddHttpContextAccessor();            
-            builder.Services.AddPresistenceServices(builder.Configuration);
+            builder.Services.AddHttpContextAccessor();
+			builder.Services.AddScoped(typeof(ILoggedInUserService), typeof(LoggedInUserService));
+            builder.Services.AddApplicationServices();
+			builder.Services.AddPresistenceServices(builder.Configuration);
 			#endregion
 
 			var app = builder.Build();
