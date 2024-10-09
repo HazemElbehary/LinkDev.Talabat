@@ -7,7 +7,7 @@ using System.Collections.Concurrent;
 
 namespace LinkDev.Talabat.Infrastructure.Persistence.UnitOfWork
 {
-	public class UnitOfWork : IUnitOfWork ,IAsyncDisposable
+	public class UnitOfWork : IUnitOfWork, IAsyncDisposable
 	{
 		private readonly StoreContext _dbContext;
 		ConcurrentDictionary<string, object> Repositories;

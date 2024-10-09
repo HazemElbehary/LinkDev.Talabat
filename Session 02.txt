@@ -1,3 +1,6 @@
+Session 02
+------------------
+
 1. Add Entity BaseEntity (Id, CreatedBy, CreatedOn, LastModifiedOn, LastModifiedBy)
 
 ------------------
