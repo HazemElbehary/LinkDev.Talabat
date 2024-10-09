@@ -34,3 +34,5 @@
 
 ---------------------------
 
+1. Separate Controllers in alone Project
+2. Create Class AssemblyInformation

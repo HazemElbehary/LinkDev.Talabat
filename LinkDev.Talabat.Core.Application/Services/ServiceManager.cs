@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using LinkDev.Talabat.Core.Application.Abstraction.Services;
 using LinkDev.Talabat.Core.Application.Abstraction.Services.Product;
+using LinkDev.Talabat.Core.Application.MappingProfile;
 using LinkDev.Talabat.Core.Application.Services.ProductServiceNS;
 using LinkDev.Talabat.Core.Domain.NIUnitOfWork;
 

@@ -3,6 +3,7 @@ using LinkDev.Talabat.APIs.LoggedInUserServices;
 using LinkDev.Talabat.Core.Application.Abstraction.LoggedInUserServices;
 using LinkDev.Talabat.Core.Application.DepaendancyInjection;
 using LinkDev.Talabat.Core.Domain;
+using LinkDev.Talabat.APIs.Controllers;
 
 namespace LinkDev.Talabat.APIs
 {
@@ -16,15 +17,15 @@ namespace LinkDev.Talabat.APIs
             
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers().AddApplicationPart(typeof(Controllers.AssemblyInformation).Assembly);
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddHttpContextAccessor();
 			builder.Services.AddScoped(typeof(ILoggedInUserService), typeof(LoggedInUserService));
-            builder.Services.AddApplicationServices();
 			builder.Services.AddPresistenceServices(builder.Configuration);
+            builder.Services.AddApplicationServices();
 			#endregion
 
 			var app = builder.Build();
