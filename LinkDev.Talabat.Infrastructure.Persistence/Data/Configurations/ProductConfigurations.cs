@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace LinkDev.Talabat.Core.Domain.Data.Configurations
 {
-    internal class ProductConfigurations : BaseConfigurations<Product, int>
+    internal class ProductConfigurations : BaseAuditableConfigurations<Product, int>
 	{
 		public override void Configure(EntityTypeBuilder<Product> builder)
 		{
