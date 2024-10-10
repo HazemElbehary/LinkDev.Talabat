@@ -4,6 +4,7 @@ using LinkDev.Talabat.Core.Application.Abstraction.LoggedInUserServices;
 using LinkDev.Talabat.Core.Application.DepaendancyInjection;
 using LinkDev.Talabat.Core.Domain;
 using LinkDev.Talabat.APIs.Controllers;
+using LinkDev.Talabat.Core.Application.MappingProfile;
 
 namespace LinkDev.Talabat.APIs
 {
@@ -25,7 +26,7 @@ namespace LinkDev.Talabat.APIs
             builder.Services.AddHttpContextAccessor();
 			builder.Services.AddScoped(typeof(ILoggedInUserService), typeof(LoggedInUserService));
 			builder.Services.AddPresistenceServices(builder.Configuration);
-            builder.Services.AddApplicationServices();
+			builder.Services.AddApplicationServices();
 			#endregion
 
 			var app = builder.Build();

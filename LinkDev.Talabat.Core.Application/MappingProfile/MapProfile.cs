@@ -6,7 +6,7 @@ using LinkDev.Talabat.Core.Domain.Entities.Product;
 
 namespace LinkDev.Talabat.Core.Application.MappingProfile
 {
-    internal class MapProfile : Profile
+    public class MapProfile : Profile
 	{
         public MapProfile()
         {

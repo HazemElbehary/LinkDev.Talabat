@@ -8,7 +8,7 @@ using LinkDev.Talabat.Infrastructure.Persistence.Repositories.GenericRepositorie
 
 namespace LinkDev.Talabat.Core.Application.Services.ProductServiceNS
 {
-    internal class ProductService(IUnitOfWork unitOfWork, Mapper mapper) : IProductService
+    internal class ProductService(IUnitOfWork unitOfWork, IMapper mapper) : IProductService
 	{
 		public async Task<IEnumerable<ProductToReturnDto>> GetProductsAsync()
 		{
