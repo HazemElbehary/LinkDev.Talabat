@@ -4,7 +4,6 @@ using LinkDev.Talabat.Core.Application.Abstraction.Services.Product;
 using LinkDev.Talabat.Core.Domain.Entities.Product;
 using LinkDev.Talabat.Core.Domain.NIUnitOfWork;
 using LinkDev.Talabat.Core.Domain.Specifications.Products;
-using LinkDev.Talabat.Infrastructure.Persistence.Repositories.GenericRepositories;
 
 namespace LinkDev.Talabat.Core.Application.Services.ProductServiceNS
 {

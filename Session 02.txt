@@ -1,10 +1,10 @@
 Session 02
 ------------------
-
+// Done
 1. Add Entity BaseEntity (Id, CreatedBy, CreatedOn, LastModifiedOn, LastModifiedBy)
 
 ------------------
-
+// Done
 1. Add Entity ProductBrand(Name)
 2. Add Entity ProductCategory(Name)
 3. Add Entity Product(Name, Description, PictureUrl, Price)
@@ -12,7 +12,7 @@ Session 02
 4. Relationship Between Product and Brand, Product and Category
 
 ------------------
-
+// Done
 1. Create DbContext + DbSets
 2. Create Class To Add Services To DI Cont. IN Persistence Layer
 3. Add BaseConfigurations Class
@@ -21,38 +21,37 @@ Session 02
 6. Add Migration
 
 ------------------
-
+// Done
 1. Update DataBase From Program "Main" 
 
 ------------------
-
+//Done
 1. Create Class StoreContxtSeed
 2. Seed Brands, Categories, Products
 
 ------------------
-
-1. IStoreContextInitializer
-	InitializeAsync, SeedAsync
-
+//Done
+1. IStoreContextInitializer(InitializeAsync, SeedAsync)
 2. StoreContextInitializer
+
 
 3. InitializerExtensions
 	InitializeStoreContext
 
 -------------------
-
+//Done
 1. Create Interface IGenericRepository
 	GetAllAsync(withTracking: bool), GetAsync, AddAsync, Update, Delete
 
 2. Create Class GenericRepository
 
 -------------------
-
+//Done
 1. Create Interface IUnitOFWork
 	CompleteAsync()
-2. Create Class IUintOFWork
+2. Create Class UintOFWork
 	CompleteAsync(), DisposeAsync()
 
 -------------------
-
+//Done
 1. Add Method GetRepository
