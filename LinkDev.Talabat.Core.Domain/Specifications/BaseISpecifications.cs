@@ -14,8 +14,9 @@ namespace LinkDev.Talabat.Infrastructure.Persistence.Repositories.GenericReposit
 		public Expression<Func<TEntity, object>>? OrderBy { get; set; } = null;
 		public Expression<Func<TEntity, object>>? OrderByDesc { get; set; } = null;
 
-		public BaseISpecifications()
+		public BaseISpecifications(Expression<Func<TEntity, bool>>? Criteria)
         {
+			this.Criteria = Criteria;
         }
 
 		public BaseISpecifications(TKey id)
@@ -25,7 +26,6 @@ namespace LinkDev.Talabat.Infrastructure.Persistence.Repositories.GenericReposit
 
 		private protected virtual void AddIncludes()
 		{
-
 		}
 
 		private protected virtual void AddOrderBy(Expression<Func<TEntity, object>> OrderByExpression)

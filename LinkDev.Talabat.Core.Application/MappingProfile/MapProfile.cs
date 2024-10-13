@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
-using LinkDev.Talabat.Core.Application.Abstraction.DTOs.Employee;
 using LinkDev.Talabat.Core.Application.Abstraction.DTOs.Product;
-using LinkDev.Talabat.Core.Domain.Entities.Employee;
 using LinkDev.Talabat.Core.Domain.Entities.Product;
 
 namespace LinkDev.Talabat.Core.Application.MappingProfile
@@ -17,7 +15,6 @@ namespace LinkDev.Talabat.Core.Application.MappingProfile
 
             CreateMap<ProductCategory, CategoryToReturnDto>();
             CreateMap<ProductBrand, BrandToReturnDto>();
-            CreateMap<Employee, EmployeeToReturnDto>();
         }
     }
 }
