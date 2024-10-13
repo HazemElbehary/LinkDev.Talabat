@@ -1,0 +1,7 @@
+1. BaseSpecification
+	AddOrderBy(), AddORderByDesc()
+
+2. Modifiy AddIncludes() => Put it in Base and Override it in childs
+
+-----------------------
+

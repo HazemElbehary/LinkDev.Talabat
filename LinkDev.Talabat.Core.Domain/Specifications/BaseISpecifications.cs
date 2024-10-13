@@ -11,9 +11,10 @@ namespace LinkDev.Talabat.Infrastructure.Persistence.Repositories.GenericReposit
 		// Where 'LINQ Operator'
 		public Expression<Func<TEntity, bool>>? Criteria { get ; set; }
 		public List<Expression<Func<TEntity, object>>> Includes { get; set; } = new();
+		public Expression<Func<TEntity, object>>? OrderBy { get; set; } = null;
+		public Expression<Func<TEntity, object>>? OrderByDesc { get; set; } = null;
 
-
-        public BaseISpecifications()
+		public BaseISpecifications()
         {
         }
 
@@ -21,5 +22,20 @@ namespace LinkDev.Talabat.Infrastructure.Persistence.Repositories.GenericReposit
 		{
 			Criteria = E => E.Id.Equals(id);
 		}
-    }
+
+		private protected virtual void AddIncludes()
+		{
+
+		}
+
+		private protected virtual void AddOrderBy(Expression<Func<TEntity, object>> OrderByExpression)
+		{
+			OrderBy = OrderByExpression;
+		}
+
+		private protected virtual void AddOrderByDesc(Expression<Func<TEntity, object>> OrderByDescExpression)
+		{
+			OrderByDesc = OrderByDescExpression;
+		}
+	}
 }

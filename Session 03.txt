@@ -80,3 +80,5 @@
 1. Modifiy GetProductAsync To Work With GetWithSpecAsync()
 
 ------------------------------
+
+1. Modifiy Returned PictureUrl

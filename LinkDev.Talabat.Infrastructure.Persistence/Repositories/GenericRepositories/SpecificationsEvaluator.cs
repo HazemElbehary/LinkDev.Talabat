@@ -8,17 +8,22 @@ namespace LinkDev.Talabat.Infrastructure.Persistence.Repositories.GenericReposit
 		where TEntity : BaseEntity<TKey> 
 		where TKey : IEquatable<TKey>
 	{
-		public static IQueryable<TEntity> GetQuery(IQueryable<TEntity> entities, ISpecifications<TEntity, TKey> spec)
+		public static IQueryable<TEntity> GetQuery(IQueryable<TEntity> query, ISpecifications<TEntity, TKey> spec)
 		{
 			if (spec.Criteria is not null)
-				entities.Where(spec.Criteria);
+				query = query.Where(spec.Criteria);
 
-            foreach (var Include in spec.Includes)
+			if (spec.OrderByDesc is not null)
+				query = query.OrderByDescending(spec.OrderByDesc);
+			else if (spec.OrderBy is not null)
+				query = query.OrderBy(spec.OrderBy);
+
+			foreach (var Include in spec.Includes)
             {
-				entities.Include(Include);
+				query.Include(Include);
             }
 
-			return entities;
+			return query;
 		}
 	}
 }
