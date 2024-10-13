@@ -12,3 +12,9 @@
 1. Create ProductSpecParams => GetAllProduct EndPoint'Parameters
 2. BaseSpecification
 	1. ApplyPagination
+
+-----------------------
+
+1. Create Paginations
+2. GetCountAsync
+3. ProductWithFilterationForCountSpecifications
