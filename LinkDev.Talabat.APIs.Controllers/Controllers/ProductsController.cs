@@ -11,7 +11,7 @@ namespace LinkDev.Talabat.APIs.Controllers.Controllers
 		[HttpGet]
 		public async Task<ActionResult<Paginations<ProductToReturnDto>>> GetProducts([FromQuery] ProductSpecParams SpecParams)
 		{
-			var Products = await serviceManager.ProductService.GetProductsAsync(SpecParams.sort, SpecParams.brandId, SpecParams.categoryId, SpecParams.pageSize ,SpecParams.pageIndex);
+			var Products = await serviceManager.ProductService.GetProductsAsync(SpecParams.sort, SpecParams.brandId, SpecParams.categoryId, SpecParams.pageSize ,SpecParams.pageIndex, SpecParams.Search);
 			return Ok(Products);
 		}
 
