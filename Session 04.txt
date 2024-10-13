@@ -6,3 +6,9 @@
 -----------------------
 
 1. Add Filteration Based On Brand Or Category (By BrandId Or CategoryId)
+
+-----------------------
+
+1. Create ProductSpecParams => GetAllProduct EndPoint'Parameters
+2. BaseSpecification
+	1. ApplyPagination

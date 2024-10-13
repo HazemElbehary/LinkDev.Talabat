@@ -13,10 +13,15 @@ namespace LinkDev.Talabat.Infrastructure.Persistence.Repositories.GenericReposit
 			if (spec.Criteria is not null)
 				query = query.Where(spec.Criteria);
 
+
+
 			if (spec.OrderByDesc is not null)
 				query = query.OrderByDescending(spec.OrderByDesc);
 			else if (spec.OrderBy is not null)
 				query = query.OrderBy(spec.OrderBy);
+
+			if (spec.IsPaginate)
+				query = query.Skip(spec.Skip).Take(spec.Take);
 
 			foreach (var Include in spec.Includes)
             {

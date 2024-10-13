@@ -13,8 +13,11 @@ namespace LinkDev.Talabat.Infrastructure.Persistence.Repositories.GenericReposit
 		public List<Expression<Func<TEntity, object>>> Includes { get; set; } = new();
 		public Expression<Func<TEntity, object>>? OrderBy { get; set; } = null;
 		public Expression<Func<TEntity, object>>? OrderByDesc { get; set; } = null;
+        public int Take { get; set; }
+        public int Skip { get; set; }
+        public bool IsPaginate { get; set; }
 
-		public BaseISpecifications(Expression<Func<TEntity, bool>>? Criteria)
+        public BaseISpecifications(Expression<Func<TEntity, bool>>? Criteria)
         {
 			this.Criteria = Criteria;
         }
@@ -36,6 +39,13 @@ namespace LinkDev.Talabat.Infrastructure.Persistence.Repositories.GenericReposit
 		private protected virtual void AddOrderByDesc(Expression<Func<TEntity, object>> OrderByDescExpression)
 		{
 			OrderByDesc = OrderByDescExpression;
+		}
+	
+		private protected void ApplyPagination(int PageSize, int PageIndex)
+		{
+			IsPaginate = true;
+			Take = PageSize;
+			Skip = (PageIndex - 1) * PageSize;
 		}
 	}
 }

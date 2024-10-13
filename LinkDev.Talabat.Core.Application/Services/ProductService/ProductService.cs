@@ -9,9 +9,9 @@ namespace LinkDev.Talabat.Core.Application.Services.ProductServiceNS
 {
     internal class ProductService(IUnitOfWork unitOfWork, IMapper mapper) : IProductService
 	{
-		public async Task<IEnumerable<ProductToReturnDto>> GetProductsAsync(string? sort, int? brandId, int? categoryId)
+		public async Task<IEnumerable<ProductToReturnDto>> GetProductsAsync(string? sort, int? brandId, int? categoryId, int pageSize, int pageIndex)
 		{
-			var spec = new ProductWithBrandAndCategorySpecifications(sort, brandId, categoryId);
+			var spec = new ProductWithBrandAndCategorySpecifications(sort, brandId, categoryId, pageSize, pageIndex);
 
 			var Products = await unitOfWork.GetRepository<Product, int>().GetAllWithSpecAsync(spec);
 

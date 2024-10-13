@@ -5,7 +5,7 @@ namespace LinkDev.Talabat.Core.Domain.Specifications.Products
 {
 	public class ProductWithBrandAndCategorySpecifications : BaseISpecifications<Product, int>
 	{
-        public ProductWithBrandAndCategorySpecifications(string? sort, int? brandId, int? categoryId) 
+        public ProductWithBrandAndCategorySpecifications(string? sort, int? brandId, int? categoryId, int PageSize, int PageIndex) 
 			: base(
 					P => 
 					(
@@ -30,7 +30,9 @@ namespace LinkDev.Talabat.Core.Domain.Specifications.Products
 					default:
 						AddOrderBy(p => p.Name);
 						break;
-				} 
+				}
+
+			ApplyPagination(PageSize, PageIndex);
 		}
 
 		public ProductWithBrandAndCategorySpecifications(int id) : base(id)
@@ -48,6 +50,8 @@ namespace LinkDev.Talabat.Core.Domain.Specifications.Products
 			Includes.Add(P => P.Brand!);
 			Includes.Add(P => P.Category!);
 		}
+
+
 
 		#endregion
 	}
