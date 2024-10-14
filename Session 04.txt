@@ -1,0 +1,20 @@
+1. BaseSpecification
+	AddOrderBy(), AddORderByDesc()
+
+2. Modifiy AddIncludes() => Put it in Base and Override it in childs
+
+-----------------------
+
+1. Add Filteration Based On Brand Or Category (By BrandId Or CategoryId)
+
+-----------------------
+
+1. Create ProductSpecParams => GetAllProduct EndPoint'Parameters
+2. BaseSpecification
+	1. ApplyPagination
+
+-----------------------
+
+1. Create Paginations
+2. GetCountAsync
+3. ProductWithFilterationForCountSpecifications
