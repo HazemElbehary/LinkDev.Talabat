@@ -9,3 +9,10 @@
 
 2. Create Error Handling Documentation in Postman
 	NotFoundEndPoint()
+
+-------------------------------
+
+1. Errors/ApiResponce
+	StutsCode: int
+	Message: string?
+	GetDefaultMessageForStatusCode
