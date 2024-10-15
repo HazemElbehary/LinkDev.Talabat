@@ -63,6 +63,9 @@ namespace LinkDev.Talabat.APIs
 
             #region Configure MiddleWares
 
+
+            app.UseStatusCodePagesWithReExecute("/Error/{0}");
+
             app.UseMiddleware<CustomExceptionHandlerMiddleware>();
 
             // Configure the HTTP request pipeline.

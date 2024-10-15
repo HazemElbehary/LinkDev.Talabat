@@ -30,3 +30,7 @@
 4. Override ToString in ApiResponse
 
 Make GetNotFoundRequest Through Exception and catch this exception in middleware
+
+--------------------------------
+
+1. Handle Not Found End Point
