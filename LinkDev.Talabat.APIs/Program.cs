@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using LinkDev.Talabat.APIs.Controllers.Errors;
 using System.Collections;
+using LinkDev.Talabat.APIs.Controllers.Middlewares;
 
 namespace LinkDev.Talabat.APIs
 {
@@ -49,7 +50,7 @@ namespace LinkDev.Talabat.APIs
 			builder.Services.AddPresistenceServices(builder.Configuration);
 			builder.Services.AddApplicationServices();
 
-
+           
 			#endregion
 
 			var app = builder.Build();
@@ -57,10 +58,12 @@ namespace LinkDev.Talabat.APIs
             #region DataBase Initialization
 
             await app.InitializeStoreContext();
-			
+
             #endregion
 
             #region Configure MiddleWares
+
+            app.UseMiddleware<CustomExceptionHandlerMiddleware>();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

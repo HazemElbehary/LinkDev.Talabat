@@ -1,4 +1,6 @@
-﻿namespace LinkDev.Talabat.APIs.Controllers.Errors
+﻿using System.Text.Json;
+
+namespace LinkDev.Talabat.APIs.Controllers.Errors
 {
 	public class ApiResponce
 	{
@@ -21,6 +23,12 @@
 				500 => "Server Error :(",
 				_ => null
 			};
+		}
+
+		public override string ToString()
+		{
+			return JsonSerializer.Serialize(this, new JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
+
 		}
 	}
 }

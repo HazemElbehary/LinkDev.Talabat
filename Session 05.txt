@@ -21,3 +21,12 @@
 
 1. ApiValidationErrorResponse
 	StatusCode, Message, Errors
+
+--------------------------------
+1. Middleware/CustomExceptionHandlerMiddleware
+	InvokeAsync()
+2. ApiExceptionResponse
+3. Exceptions/NotFoundException
+4. Override ToString in ApiResponse
+
+Make GetNotFoundRequest Through Exception and catch this exception in middleware
