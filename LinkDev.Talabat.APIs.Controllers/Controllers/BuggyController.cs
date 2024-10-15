@@ -34,17 +34,20 @@ namespace LinkDev.Talabat.APIs.Controllers.Controllers
             return Unauthorized(new ApiResponce(401));
         }
 
+
         [HttpGet("validationError/{id}")] // // GET: /api/buggy/validationError/Five
 		public IActionResult GetValidationError(int id)
         {
             return Ok();
         }
 
+
         [HttpGet("foribidden")] // GET: /api/buggy/foribidden
 		public IActionResult GetForbiddenRequest()
         {
             return Forbid();
         }
+
 
         [HttpGet("unAuthorizedRequest")] // GET: /api/buggy/unAuthorizedRequest
 		[Authorize]

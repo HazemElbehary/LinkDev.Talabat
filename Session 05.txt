@@ -16,3 +16,8 @@
 	StutsCode: int
 	Message: string?
 	GetDefaultMessageForStatusCode
+
+--------------------------------
+
+1. ApiValidationErrorResponse
+	StatusCode, Message, Errors
