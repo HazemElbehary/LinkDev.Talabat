@@ -1,0 +1,11 @@
+1. Buggy Controller
+	1. GetNotFoundRequest()
+	2. GetServerError()
+	3. GetBadRequest()
+	4. GetUnAuthorizedError()
+	5. GetValidationError()
+	6. GetForbiddenRequest()
+	7. GetAuhtorizedRequest()
+
+2. Create Error Handling Documentation in Postman
+	NotFoundEndPoint()
