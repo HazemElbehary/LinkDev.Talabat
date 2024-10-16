@@ -52,6 +52,7 @@ namespace LinkDev.Talabat.APIs.Controllers.Middlewares
 						await httpContext.Response.WriteAsync(response.ToString());
 						break;
 				}
+
 			}
 		}
     }

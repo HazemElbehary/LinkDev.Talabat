@@ -53,3 +53,8 @@ Make GetNotFoundRequest Through Exception and catch this exception in middleware
 
 --------------------------------
 
+1. IBasketService, BasketService
+	GetCustomerBasketAsync(), UpdateCustomerBasketAsync(), DeleteCustomerBasketAsync()
+
+2. BasketItemDto     "Like BasketItem"
+3. CustomerBasketDto "Like CustomerBasket"

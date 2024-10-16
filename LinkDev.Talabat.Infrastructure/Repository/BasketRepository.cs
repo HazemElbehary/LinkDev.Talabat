@@ -22,12 +22,12 @@ namespace LinkDev.Talabat.Infrastructure.Repository
 				JsonSerializer.Deserialize<CustomerBasket>(Basket!);
 		}
 
-		public async Task<CustomerBasket?> UpdateAsync(CustomerBasket basket)
+		public async Task<CustomerBasket?> UpdateAsync(CustomerBasket basket, TimeSpan TimeToLive)
 		{
 			var Basket = await _database
 				.StringSetAsync(
 					basket.Id,
-					JsonSerializer.Serialize(basket.Items)
+					JsonSerializer.Serialize(basket.Items),TimeToLive
 				);
 
 			return basket;
