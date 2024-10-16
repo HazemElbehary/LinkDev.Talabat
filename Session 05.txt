@@ -42,3 +42,14 @@ Make GetNotFoundRequest Through Exception and catch this exception in middleware
 
 2. CustomerBasket
 	Id, Items
+
+--------------------------------
+
+1. IBasketRepository
+	GetAsync(), UpdateAsync(), DeleteAsync()
+
+2. BsaketRepository
+3. DependancyInjection in Infrastructure
+
+--------------------------------
+

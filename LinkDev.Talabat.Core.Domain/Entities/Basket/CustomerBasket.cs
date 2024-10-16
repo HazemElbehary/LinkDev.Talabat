@@ -1,6 +1,6 @@
 ﻿namespace LinkDev.Talabat.Core.Domain.Entities.Basket
 {
-	public class CustomerBsket
+	public class CustomerBasket
 	{
         public required string Id { get; set; }
 
