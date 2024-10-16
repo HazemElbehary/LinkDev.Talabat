@@ -1,14 +1,16 @@
+using LinkDev.Talabat.APIs.Controllers.Errors;
+using LinkDev.Talabat.APIs.Controllers.Middlewares;
 using LinkDev.Talabat.APIs.Extensions;
 using LinkDev.Talabat.APIs.LoggedInUserServices;
 using LinkDev.Talabat.Core.Application.Abstraction.LoggedInUserServices;
 using LinkDev.Talabat.Core.Application.DepaendancyInjection;
 using LinkDev.Talabat.Core.Domain;
-using LinkDev.Talabat.APIs.Controllers;
-using LinkDev.Talabat.Core.Application.MappingProfile;
+using Microsoft.AspNetCore.Mvc;
+using LinkDev.Talabat.Infrastructure;
 
 namespace LinkDev.Talabat.APIs
 {
-    public class Program
+	public class Program
     {
         public async static Task Main(string[] args)
         {
@@ -18,7 +20,24 @@ namespace LinkDev.Talabat.APIs
             
             // Add services to the container.
 
-            builder.Services.AddControllers().AddApplicationPart(typeof(Controllers.AssemblyInformation).Assembly);
+            builder.Services
+                .AddControllers()
+                .ConfigureApiBehaviorOptions(options =>
+                {
+                    options.SuppressModelStateInvalidFilter = false;
+                    options.InvalidModelStateResponseFactory = actionContext =>
+                    {
+
+                        var Errors = actionContext.ModelState
+                        .Where(P => P.Value!.Errors.Count > 0)
+                        .ToDictionary(
+                            p => p.Key,
+                            p => p.Value!.Errors.Select(e => e.ErrorMessage).ToArray()
+                        );
+						return new BadRequestObjectResult(new ApiValidationErrorResponse() { Errors = Errors });
+					};
+                })
+                .AddApplicationPart(typeof(Controllers.AssemblyInformation).Assembly);
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -27,6 +46,8 @@ namespace LinkDev.Talabat.APIs
 			builder.Services.AddScoped(typeof(ILoggedInUserService), typeof(LoggedInUserService));
 			builder.Services.AddPresistenceServices(builder.Configuration);
 			builder.Services.AddApplicationServices();
+            builder.Services.AddInfrastructure(builder.Configuration);
+
 			#endregion
 
 			var app = builder.Build();
@@ -34,10 +55,15 @@ namespace LinkDev.Talabat.APIs
             #region DataBase Initialization
 
             await app.InitializeStoreContext();
-			
+
             #endregion
 
             #region Configure MiddleWares
+
+
+            app.UseStatusCodePagesWithReExecute("/Error/{0}");
+
+            app.UseMiddleware<ExceptionHandlerMiddleware>();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

@@ -1,0 +1,60 @@
+1. Buggy Controller
+	1. GetNotFoundRequest()
+	2. GetServerError()
+	3. GetBadRequest()
+	4. GetUnAuthorizedError()
+	5. GetValidationError()
+	6. GetForbiddenRequest()
+	7. GetAuhtorizedRequest()
+
+2. Create Error Handling Documentation in Postman
+	NotFoundEndPoint()
+
+-------------------------------
+
+1. Errors/ApiResponce
+	StutsCode: int
+	Message: string?
+	GetDefaultMessageForStatusCode
+
+--------------------------------
+
+1. ApiValidationErrorResponse
+	StatusCode, Message, Errors
+
+--------------------------------
+1. Middleware/CustomExceptionHandlerMiddleware
+	InvokeAsync()
+2. ApiExceptionResponse
+3. Exceptions/NotFoundException
+4. Override ToString in ApiResponse
+
+Make GetNotFoundRequest Through Exception and catch this exception in middleware
+
+--------------------------------
+
+1. Handle Not Found End Point
+
+--------------------------------
+
+1. BasketItem
+	Id, ProductName, PictureUrl, Price, Quantity, BrandName, CategoryName
+
+2. CustomerBasket
+	Id, Items
+
+--------------------------------
+
+1. IBasketRepository
+	GetAsync(), UpdateAsync(), DeleteAsync()
+
+2. BsaketRepository
+3. DependancyInjection in Infrastructure
+
+--------------------------------
+
+1. IBasketService, BasketService
+	GetCustomerBasketAsync(), UpdateCustomerBasketAsync(), DeleteCustomerBasketAsync()
+
+2. BasketItemDto     "Like BasketItem"
+3. CustomerBasketDto "Like CustomerBasket"
