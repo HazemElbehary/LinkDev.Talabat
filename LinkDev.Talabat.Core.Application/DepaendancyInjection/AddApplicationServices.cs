@@ -22,7 +22,7 @@ namespace LinkDev.Talabat.Core.Application.DepaendancyInjection
 				var mapper = serviceProvider.GetRequiredService<IMapper>();
 				var configuration = serviceProvider.GetRequiredService<IConfiguration>();
 				var basket = serviceProvider.GetRequiredService<IBasketRepository>();
-				return new BasketService(basket, mapper, configuration);
+				return () => new BasketService(basket, mapper, configuration);
 
 			});
 
