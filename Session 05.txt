@@ -34,3 +34,11 @@ Make GetNotFoundRequest Through Exception and catch this exception in middleware
 --------------------------------
 
 1. Handle Not Found End Point
+
+--------------------------------
+
+1. BasketItem
+	Id, ProductName, PictureUrl, Price, Quantity, BrandName, CategoryName
+
+2. CustomerBasket
+	Id, Items
