@@ -1,4 +1,6 @@
 ﻿using LinkDev.Talabat.APIs.Controllers.Errors;
+using LinkDev.Talabat.Core.Application.Exceptions;
+using LinkDev.Talabat.Core.Domain.Entities.Basket;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,8 +27,8 @@ namespace LinkDev.Talabat.APIs.Controllers.Controllers
         [HttpGet("badRequest")] // GET: /api/buggy/badRequest
 		public IActionResult GetBadRequest()
         {
-            return BadRequest(new ApiResponce(400)); // 400
-        }
+			return BadRequest(new ApiResponce(400)); // 400
+		}
 
 
         [HttpGet("unathorizedError")] // // GET: /api/buggy/unathorizedError
