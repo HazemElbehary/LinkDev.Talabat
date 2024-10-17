@@ -7,7 +7,7 @@ namespace LinkDev.Talabat.APIs.Controllers.Controllers
 	public class BasketController(IServiceManager serviceManager) : BaseApiController
 	{
 		[HttpGet]
-		public async Task<ActionResult<CustomerBasketDto>> GetBasket(string id)
+		public async Task<ActionResult<CustomerBasketDto>> GetBasket([FromQuery]string id) // GET: /api/basket?id="12"
 		{
 			var basket = await serviceManager.BasketService.GetCustomerBasketAsync(id);
 			return Ok(basket);

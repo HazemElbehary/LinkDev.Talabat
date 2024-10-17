@@ -11,6 +11,7 @@ namespace LinkDev.Talabat.APIs.Controllers.Controllers
 
 		[HttpGet]
 		public IActionResult Error(int Code)
+		
 		{
 			if(Code == 404)
 			{

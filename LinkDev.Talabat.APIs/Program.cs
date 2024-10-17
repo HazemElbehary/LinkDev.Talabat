@@ -45,8 +45,8 @@ namespace LinkDev.Talabat.APIs
             builder.Services.AddHttpContextAccessor();
 			builder.Services.AddScoped(typeof(ILoggedInUserService), typeof(LoggedInUserService));
 			builder.Services.AddPresistenceServices(builder.Configuration);
-			builder.Services.AddApplicationServices();
             builder.Services.AddInfrastructure(builder.Configuration);
+			builder.Services.AddApplicationServices();
 
 			#endregion
 
@@ -60,10 +60,9 @@ namespace LinkDev.Talabat.APIs
 
             #region Configure MiddleWares
 
-
+            app.UseMiddleware<ExceptionHandlerMiddleware>();
             app.UseStatusCodePagesWithReExecute("/Error/{0}");
 
-            app.UseMiddleware<ExceptionHandlerMiddleware>();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
