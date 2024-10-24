@@ -7,6 +7,8 @@ using LinkDev.Talabat.Core.Application.DepaendancyInjection;
 using LinkDev.Talabat.Core.Domain;
 using Microsoft.AspNetCore.Mvc;
 using LinkDev.Talabat.Infrastructure;
+using LinkDev.Talabat.Core.Domain.Entities.Identity;
+using Microsoft.AspNetCore.Identity;
 
 namespace LinkDev.Talabat.APIs
 {
@@ -47,6 +49,8 @@ namespace LinkDev.Talabat.APIs
 			builder.Services.AddPresistenceServices(builder.Configuration);
             builder.Services.AddInfrastructure(builder.Configuration);
 			builder.Services.AddApplicationServices();
+
+            builder.Services.AddIdentityService();
 
 			#endregion
 

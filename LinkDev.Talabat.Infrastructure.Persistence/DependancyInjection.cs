@@ -18,20 +18,24 @@ namespace LinkDev.Talabat.Core.Domain
 		{
 			service.AddDbContext<StoreContext>(options =>
 			{
-				options.UseLazyLoadingProxies().UseSqlServer(configuration.GetConnectionString("StoreConnection"));
+				options
+				.UseLazyLoadingProxies()
+				.UseSqlServer(configuration.GetConnectionString("StoreConnection"));
 			});
 
 
 			service.AddDbContext<StoreIdentityDbContext>(options =>
 			{
-				options.UseSqlServer(configuration.GetConnectionString("IdentityConnection"));
+				options
+				.UseLazyLoadingProxies()
+				.UseSqlServer(configuration.GetConnectionString("IdentityConnection"));
 			});
 
 			service.AddScoped(typeof(IStoreContextInitializer), typeof(StoreContextInitializer));
+			service.AddScoped(typeof(IStoreIdentityDbInitializer), typeof(StoreIdentityDbInitializer));
 			service.AddScoped(typeof(ISaveChangesInterceptor), typeof(CustomSaveChangesInterceptor));
 			service.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
-			
-			
+
 			return service;
 		}
 	}

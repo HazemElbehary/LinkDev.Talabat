@@ -24,3 +24,7 @@
 
 4. DbInitializer
 5. Seed One User
+
+--------------------------
+
+1. Register UserManager and It's Dependancies

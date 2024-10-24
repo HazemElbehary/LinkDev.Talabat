@@ -10,14 +10,15 @@ namespace LinkDev.Talabat.APIs.Extensions
 			var services = scope.ServiceProvider;
 
 			var storeContextInitializer = services.GetRequiredService<IStoreContextInitializer>();
+			var storeIdentityInitializer = services.GetRequiredService<IStoreIdentityDbInitializer>();
 			var Logger = services.GetRequiredService<ILogger<Program>>();
-
-
 
 			try
 			{
 				await storeContextInitializer.InitializeAsync();
 				await storeContextInitializer.SeedAsync();
+				await storeIdentityInitializer.InitializeAsync();
+				await storeIdentityInitializer.SeedAsync();
 			}
 			catch (Exception ex)
 			{
