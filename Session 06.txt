@@ -8,3 +8,9 @@
 1. _Identity>StoreIdentityDbContext
 2. ApplicationUserConfigurations
 3. AddressConfigurations
+
+--------------------------
+
+1. Attribute "DbContextTypeAttribute"
+
+--------------------------

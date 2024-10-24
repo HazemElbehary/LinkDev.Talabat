@@ -1,5 +1,7 @@
 ﻿using LinkDev.Talabat.Core.Domain.Entities.Product;
+using LinkDev.Talabat.Infrastructure.Persistence.Common;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace LinkDev.Talabat.Core.Domain.Data
 {
@@ -11,7 +13,10 @@ namespace LinkDev.Talabat.Core.Domain.Data
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			modelBuilder.ApplyConfigurationsFromAssembly(typeof(AssemblyInformation).Assembly);
+			modelBuilder.ApplyConfigurationsFromAssembly(
+				typeof(AssemblyInformation).Assembly,
+				type => type.GetCustomAttribute<DbContextTypeAttribute>()?.DbContextType == typeof(StoreContext)
+			);
 		}
 		
 		public DbSet<Product> products { get; set; }
