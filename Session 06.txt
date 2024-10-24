@@ -2,3 +2,9 @@
 	DisplayName, Address
 2. Address
 	Id, FirstName, LastName, Street, City, Country, UserId, User
+
+--------------------------
+
+1. _Identity>StoreIdentityDbContext
+2. ApplicationUserConfigurations
+3. AddressConfigurations

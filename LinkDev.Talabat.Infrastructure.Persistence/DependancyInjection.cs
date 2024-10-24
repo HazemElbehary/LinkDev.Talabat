@@ -1,6 +1,7 @@
 ﻿using LinkDev.Talabat.Core.Domain.Contracts;
 using LinkDev.Talabat.Core.Domain.Data;
 using LinkDev.Talabat.Core.Domain.NIUnitOfWork;
+using LinkDev.Talabat.Infrastructure.Persistence._Identity;
 using LinkDev.Talabat.Infrastructure.Persistence.Data;
 using LinkDev.Talabat.Infrastructure.Persistence.Data.Interceptors;
 using LinkDev.Talabat.Infrastructure.Persistence.FUnitOfWork;
@@ -18,6 +19,12 @@ namespace LinkDev.Talabat.Core.Domain
 			service.AddDbContext<StoreContext>(options =>
 			{
 				options.UseLazyLoadingProxies().UseSqlServer(configuration.GetConnectionString("StoreConnection"));
+			});
+
+
+			service.AddDbContext<StoreIdentityDbContext>(options =>
+			{
+				options.UseSqlServer(configuration.GetConnectionString("IdentityConnection"));
 			});
 
 			service.AddScoped(typeof(IStoreContextInitializer), typeof(StoreContextInitializer));
