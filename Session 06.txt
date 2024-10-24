@@ -28,3 +28,15 @@
 --------------------------
 
 1. Register UserManager and It's Dependancies
+
+--------------------------
+
+1. IAuthService
+	LoginAsync, RegisterAsync
+2. UserDto
+3. LoginDto
+4. RegisterDto
+5. AuthService
+	LoginAsync, RegisterAsync
+6. UnAuhtorizedException
+7. ValidationException

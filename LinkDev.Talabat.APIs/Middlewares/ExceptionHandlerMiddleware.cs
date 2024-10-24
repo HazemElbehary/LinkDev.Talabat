@@ -53,6 +53,17 @@ namespace LinkDev.Talabat.APIs.Controllers.Middlewares
 					await httpContext.Response.WriteAsync(response.ToString());
 					break;
 
+				case ValidationException validationException:
+					response = new ApiValidationErrorResponse(ex.Message)
+						{
+							Errors = validationException.Errors
+						};
+
+					httpContext.Response.StatusCode = 400;
+					httpContext.Response.ContentType = "text/json";
+					await httpContext.Response.WriteAsync(response.ToString());
+					break;
+
 				case BadRequestException:
 					response = _environment.IsDevelopment() ?
 						new ApiExceptionResponse(400, ex.Message, ex.StackTrace!.ToString())
