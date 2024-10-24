@@ -1,11 +1,11 @@
-﻿using LinkDev.Talabat.Core.Domain.Contracts.Infrastructure;
+﻿using LinkDev.Talabat.Core.Domain.Contracts;
 using LinkDev.Talabat.Core.Domain.Entities.Basket;
 using StackExchange.Redis;
 using System.Text.Json;
 
 namespace LinkDev.Talabat.Infrastructure.Repository
 {
-	internal class BasketRepository : IBasketRepository
+    internal class BasketRepository : IBasketRepository
 	{
 		private IDatabase _database;
 

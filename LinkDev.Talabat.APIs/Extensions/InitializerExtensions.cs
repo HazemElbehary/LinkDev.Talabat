@@ -1,8 +1,8 @@
-﻿using LinkDev.Talabat.Core.Domain.Contracts;
+﻿using LinkDev.Talabat.Core.Domain.Contracts.DbInitializers;
 
 namespace LinkDev.Talabat.APIs.Extensions
 {
-	public static class InitializerExtensions
+    public static class InitializerExtensions
 	{
 		public async static Task<WebApplication> InitializeStoreContext(this WebApplication app)
 		{

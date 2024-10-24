@@ -1,4 +1,4 @@
-﻿using LinkDev.Talabat.Core.Domain.Contracts;
+﻿using LinkDev.Talabat.Core.Domain.Contracts.DbInitializers;
 using LinkDev.Talabat.Core.Domain.Data;
 using LinkDev.Talabat.Core.Domain.NIUnitOfWork;
 using LinkDev.Talabat.Infrastructure.Persistence._Identity;
@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace LinkDev.Talabat.Core.Domain
 {
-	public static class DependancyInjection
+    public static class DependancyInjection
 	{
 		public static IServiceCollection AddPresistenceServices(this IServiceCollection service, IConfiguration configuration)
 		{

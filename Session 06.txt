@@ -14,3 +14,13 @@
 1. Attribute "DbContextTypeAttribute"
 
 --------------------------
+
+1. IStoreIdentityDbInitializer
+2. StoreIdentityDbInitializer
+
+3. IDbInitializer <-- IStoreIdentityDbInitializer, IStoreContextInitializer
+	InitializeAsync()
+	SeedAsync()
+
+4. DbInitializer
+5. Seed One User
