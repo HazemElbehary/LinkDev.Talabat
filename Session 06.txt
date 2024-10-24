@@ -1,0 +1,4 @@
+1. ApplicationUser
+	DisplayName, Address
+2. Address
+	Id, FirstName, LastName, Street, City, Country, UserId, User
