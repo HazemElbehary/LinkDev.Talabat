@@ -3,6 +3,7 @@ using LinkDev.Talabat.Core.Application.Abstraction.Services.Auth;
 using LinkDev.Talabat.Core.Application.Exceptions;
 using LinkDev.Talabat.Core.Domain.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -11,8 +12,15 @@ using System.Text;
 
 namespace LinkDev.Talabat.Core.Application.Services.Auth
 {
-	internal class AuthService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager) : IAuthService
+	internal class AuthService(
+		UserManager<ApplicationUser> userManager,
+		SignInManager<ApplicationUser> signInManager,
+		IOptions<JwtSettings> jwtSettings
+		) : IAuthService
 	{
+
+		private readonly JwtSettings _jwtSettings = jwtSettings.Value;
+
 		public async Task<UserDto> RegisterAsync(RegisterDto model)
 		{
 			var user = new ApplicationUser() 
@@ -93,15 +101,15 @@ namespace LinkDev.Talabat.Core.Application.Services.Auth
 			}.Union(userClaims)
 			.Union(roleAsClaims);
 
-			var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your-256-bit-secoedfewferfedfgsdffffffffrgftrewfcsnd"));
+			var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key));
 			var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
 
 
 			var tokenObject = new JwtSecurityToken(
-				issuer: "TalabatIdentity",
-				audience: "TalabatUsers",
+				issuer: _jwtSettings.Issure,
+				audience: _jwtSettings.Audience,
 				claims: claims,
-				expires: DateTime.UtcNow.AddMinutes(10),
+				expires: DateTime.UtcNow.AddMinutes(_jwtSettings.DurationInMinutes),
 				signingCredentials: signingCredentials
 			);
 

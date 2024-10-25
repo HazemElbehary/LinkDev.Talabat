@@ -47,7 +47,7 @@ namespace LinkDev.Talabat.APIs
             builder.Services.AddInfrastructure(builder.Configuration);
 			builder.Services.AddApplicationServices();
 
-            builder.Services.AddIdentityService();
+            builder.Services.AddIdentityService(builder.Configuration);
 
 			#endregion
 

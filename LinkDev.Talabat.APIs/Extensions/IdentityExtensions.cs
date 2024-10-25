@@ -1,4 +1,5 @@
-﻿using LinkDev.Talabat.Core.Domain.Entities.Identity;
+﻿using LinkDev.Talabat.Core.Application.Abstraction.DTOs.Auth;
+using LinkDev.Talabat.Core.Domain.Entities.Identity;
 using LinkDev.Talabat.Infrastructure.Persistence._Identity;
 using Microsoft.AspNetCore.Identity;
 
@@ -6,8 +7,10 @@ namespace LinkDev.Talabat.APIs.Extensions
 {
 	public static class IdentityExtensions
 	{
-		public static IServiceCollection AddIdentityService(this IServiceCollection service)
+		public static IServiceCollection AddIdentityService(this IServiceCollection service, IConfiguration configuration)
 		{
+			service.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
+
 			service.AddIdentity<ApplicationUser, IdentityRole>(IdentityOptions => 
 			{
 				IdentityOptions.User.RequireUniqueEmail = true;
