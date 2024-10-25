@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using LinkDev.Talabat.Core.Application.Abstraction.Services;
+using LinkDev.Talabat.Core.Application.Abstraction.Services.Auth;
 using LinkDev.Talabat.Core.Application.Abstraction.Services.Basket;
 using LinkDev.Talabat.Core.Application.Abstraction.Services.Product;
+using LinkDev.Talabat.Core.Application.Services.Auth;
 using LinkDev.Talabat.Core.Application.Services.Basket;
 using LinkDev.Talabat.Core.Application.Services.ProductServiceNS;
 using LinkDev.Talabat.Core.Domain.NIUnitOfWork;
@@ -15,20 +17,22 @@ namespace LinkDev.Talabat.Core.Application.Services
 		private readonly IMapper _mapper;
 		private readonly IConfiguration _configuration;
 		private readonly Lazy<IBasketService> _basketService;
-		Lazy<ProductService> _productService;
+		private readonly Lazy<IAuthService> _authService;
+		private readonly Lazy<IProductService> _productService;
 
-        public ServiceManager(IUnitOfWork unitOfWork, IMapper mapper, IConfiguration configuration, Func<IBasketService> basketServiceFactry)
+        public ServiceManager(IUnitOfWork unitOfWork, IMapper mapper, IConfiguration configuration, Func<IBasketService> basketServiceFactry, Func<IAuthService> AuthServiceFactry)
         {
 			_mapper = mapper;
 			_configuration = configuration;
 			_unitOfWork = unitOfWork;
-			_productService = new Lazy<ProductService>(()=> new ProductService(unitOfWork, mapper));
+			_productService = new Lazy<IProductService>(()=> new ProductService(unitOfWork, mapper));
+			_authService = new Lazy<IAuthService>(AuthServiceFactry);
 			_basketService = new Lazy<IBasketService>(basketServiceFactry);
-
 		}
         public IProductService ProductService => _productService.Value;
 
 		public IBasketService BasketService => _basketService.Value;
+		public IAuthService AuthService => _authService.Value;
 
 	}
 }

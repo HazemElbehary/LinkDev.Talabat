@@ -3,6 +3,10 @@ using LinkDev.Talabat.Core.Application.Abstraction.Services.Auth;
 using LinkDev.Talabat.Core.Application.Exceptions;
 using LinkDev.Talabat.Core.Domain.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 
 namespace LinkDev.Talabat.Core.Application.Services.Auth
@@ -38,7 +42,7 @@ namespace LinkDev.Talabat.Core.Application.Services.Auth
 				Id = user.Id,
 				DisplayName = user.DisplayName,
 				Email = user.Email,
-				Token = "This Will Be Token"
+				Token = await GenerateTokenAsync(user)
 			};
 
 			return response;
@@ -61,10 +65,45 @@ namespace LinkDev.Talabat.Core.Application.Services.Auth
 				Id = user.Id,
 				DisplayName = user.DisplayName,
 				Email = user.Email!,
-				Token = "This Will Be Token"
+				Token = await GenerateTokenAsync(user)
 			};
 
 			return response;
+		}
+	
+		private async Task<string> GenerateTokenAsync(ApplicationUser user)
+		{
+			var userClaims = await userManager.GetClaimsAsync(user);
+			var roleAsClaims = new List<Claim>();
+
+			var roles = await userManager.GetRolesAsync(user);
+            foreach (var role in roles)
+            {
+				roleAsClaims.Add(new Claim(ClaimTypes.Role, role.ToString()));
+			}
+
+			var claims = new List<Claim>() 
+			{
+				new Claim(ClaimTypes.PrimarySid, user.Id),
+				new Claim(ClaimTypes.Email, user.Email!),
+				new Claim(ClaimTypes.GivenName, user.DisplayName)
+			}.Union(userClaims)
+			.Union(roleAsClaims);
+
+			var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your-256-bit-second"));
+			var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
+
+
+			var tokenObject = new JwtSecurityToken(
+				issuer: "TalabatIdentity",
+				audience: "TalabatUsers",
+				claims: claims,
+				expires: DateTime.UtcNow.AddMinutes(10),
+				signingCredentials: signingCredentials
+			);
+
+			return new JwtSecurityTokenHandler().WriteToken(tokenObject);
+
 		}
 	}
 }

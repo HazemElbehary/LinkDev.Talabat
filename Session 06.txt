@@ -40,3 +40,7 @@
 	LoginAsync, RegisterAsync
 6. UnAuhtorizedException
 7. ValidationException
+
+--------------------------
+
+1. GenerateTokenAsync
