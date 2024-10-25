@@ -1,0 +1,54 @@
+1. ApplicationUser
+	DisplayName, Address
+2. Address
+	Id, FirstName, LastName, Street, City, Country, UserId, User
+
+--------------------------
+
+1. _Identity>StoreIdentityDbContext
+2. ApplicationUserConfigurations
+3. AddressConfigurations
+
+--------------------------
+
+1. Attribute "DbContextTypeAttribute"
+
+--------------------------
+
+1. IStoreIdentityDbInitializer
+2. StoreIdentityDbInitializer
+
+3. IDbInitializer <-- IStoreIdentityDbInitializer, IStoreContextInitializer
+	InitializeAsync()
+	SeedAsync()
+
+4. DbInitializer
+5. Seed One User
+
+--------------------------
+
+1. Register UserManager and It's Dependancies
+
+--------------------------
+
+1. IAuthService
+	LoginAsync, RegisterAsync
+2. UserDto
+3. LoginDto
+4. RegisterDto
+5. AuthService
+	LoginAsync, RegisterAsync
+6. UnAuhtorizedException
+7. ValidationException
+
+--------------------------
+
+1. GenerateTokenAsync
+
+--------------------------
+
+1. AccountController
+	Login, Register
+
+--------------------------
+

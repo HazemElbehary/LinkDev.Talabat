@@ -2,12 +2,12 @@
 using LinkDev.Talabat.Core.Application.Abstraction.DTOs.Basket;
 using LinkDev.Talabat.Core.Application.Abstraction.Services.Basket;
 using LinkDev.Talabat.Core.Application.Exceptions;
-using LinkDev.Talabat.Core.Domain.Contracts.Infrastructure;
+using LinkDev.Talabat.Core.Domain.Contracts;
 using LinkDev.Talabat.Core.Domain.Entities.Basket;
 using Microsoft.Extensions.Configuration;
 namespace LinkDev.Talabat.Core.Application.Services.Basket
 {
-	internal class BasketService : IBasketService
+    internal class BasketService : IBasketService
 	{
 		private readonly IBasketRepository _basketRepository;
 		private readonly IMapper _mapper;

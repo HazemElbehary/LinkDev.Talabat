@@ -7,7 +7,6 @@ using LinkDev.Talabat.Core.Application.DepaendancyInjection;
 using LinkDev.Talabat.Core.Domain;
 using Microsoft.AspNetCore.Mvc;
 using LinkDev.Talabat.Infrastructure;
-
 namespace LinkDev.Talabat.APIs
 {
 	public class Program
@@ -48,6 +47,8 @@ namespace LinkDev.Talabat.APIs
             builder.Services.AddInfrastructure(builder.Configuration);
 			builder.Services.AddApplicationServices();
 
+            builder.Services.AddIdentityService(builder.Configuration);
+
 			#endregion
 
 			var app = builder.Build();
@@ -73,6 +74,7 @@ namespace LinkDev.Talabat.APIs
 
             app.UseHttpsRedirection();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseStaticFiles();

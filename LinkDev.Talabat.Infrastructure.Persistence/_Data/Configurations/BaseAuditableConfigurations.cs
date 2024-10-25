@@ -12,6 +12,8 @@ namespace LinkDev.Talabat.Core.Domain.Data.Configurations
 	{
 		public override void Configure(EntityTypeBuilder<TEntity> builder)
 		{
+			base.Configure(builder);
+
 			builder.Property(E => E.CreatedBy).IsRequired();
 
 			builder.Property(E => E.CreatedOn).IsRequired();

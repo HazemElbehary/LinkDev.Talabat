@@ -1,17 +1,22 @@
 ﻿using LinkDev.Talabat.Core.Domain.Entities.Product;
+using LinkDev.Talabat.Infrastructure.Persistence.Common;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace LinkDev.Talabat.Core.Domain.Data
 {
     public class StoreContext : DbContext
 	{
-        public StoreContext(DbContextOptions options) : base(options)
+        public StoreContext(DbContextOptions<StoreContext> options) : base(options)
         {
         }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			modelBuilder.ApplyConfigurationsFromAssembly(typeof(AssemblyInformation).Assembly);
+			modelBuilder.ApplyConfigurationsFromAssembly(
+				typeof(AssemblyInformation).Assembly,
+				type => type.GetCustomAttribute<DbContextTypeAttribute>()?.DbContextType == typeof(StoreContext)
+			);
 		}
 		
 		public DbSet<Product> products { get; set; }
