@@ -44,3 +44,8 @@
 --------------------------
 
 1. GenerateTokenAsync
+
+--------------------------
+
+1. AccountController
+	Login, Register

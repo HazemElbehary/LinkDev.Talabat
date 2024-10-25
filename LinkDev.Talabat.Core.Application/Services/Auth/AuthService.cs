@@ -60,6 +60,9 @@ namespace LinkDev.Talabat.Core.Application.Services.Auth
 
 			if (result.IsLockedOut) throw new UnAuthorizedException("Account Is Locked.");
 
+			if(!result.Succeeded) throw new UnAuthorizedException("Invalid Login.");
+
+
 			var response = new UserDto() 
 			{
 				Id = user.Id,
@@ -90,7 +93,7 @@ namespace LinkDev.Talabat.Core.Application.Services.Auth
 			}.Union(userClaims)
 			.Union(roleAsClaims);
 
-			var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your-256-bit-second"));
+			var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your-256-bit-secoedfewferfedfgsdffffffffrgftrewfcsnd"));
 			var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
 
 
@@ -103,7 +106,6 @@ namespace LinkDev.Talabat.Core.Application.Services.Auth
 			);
 
 			return new JwtSecurityTokenHandler().WriteToken(tokenObject);
-
 		}
 	}
 }

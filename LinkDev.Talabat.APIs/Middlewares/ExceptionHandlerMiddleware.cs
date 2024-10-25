@@ -1,5 +1,4 @@
-﻿using Azure;
-using LinkDev.Talabat.APIs.Controllers.Errors;
+﻿using LinkDev.Talabat.APIs.Controllers.Errors;
 using LinkDev.Talabat.Core.Application.Exceptions;
 
 namespace LinkDev.Talabat.APIs.Controllers.Middlewares
@@ -11,21 +10,20 @@ namespace LinkDev.Talabat.APIs.Controllers.Middlewares
 		private readonly ILogger<ExceptionHandlerMiddleware> _logger;
 
 		public ExceptionHandlerMiddleware(RequestDelegate next, IWebHostEnvironment environment, ILogger<ExceptionHandlerMiddleware> logger)
-        {
+		{
 			_next = next;
 			_environment = environment;
 			_logger = logger;
 		}
 
-        public async Task InvokeAsync(HttpContext httpContext)
-        {
+		public async Task InvokeAsync(HttpContext httpContext)
+		{
 			try
 			{
 				await _next(httpContext);
 			}
 			catch (Exception ex)
 			{
-
 				if (_environment.IsDevelopment())
 				{
 					_logger.LogError(ex, ex.Message);
@@ -55,9 +53,9 @@ namespace LinkDev.Talabat.APIs.Controllers.Middlewares
 
 				case ValidationException validationException:
 					response = new ApiValidationErrorResponse(ex.Message)
-						{
-							Errors = validationException.Errors
-						};
+					{
+						Errors = validationException.Errors
+					};
 
 					httpContext.Response.StatusCode = 400;
 					httpContext.Response.ContentType = "text/json";
@@ -73,9 +71,16 @@ namespace LinkDev.Talabat.APIs.Controllers.Middlewares
 					await httpContext.Response.WriteAsync(response.ToString());
 					break;
 
+				case UnAuthorizedException:
+					response = new ApiExceptionResponse(401, ex.Message);
+					httpContext.Response.StatusCode = 401;
+					httpContext.Response.ContentType = "text/json";
+					await httpContext.Response.WriteAsync(response.ToString());
+					break;
+
 				default:
-					response = _environment.IsDevelopment() ? 
-						new ApiExceptionResponse(500, ex.Message, ex.StackTrace!.ToString()) 
+					response = _environment.IsDevelopment() ?
+						new ApiExceptionResponse(500, ex.Message, ex.StackTrace!.ToString())
 						: new ApiExceptionResponse(500, ex.Message);
 					httpContext.Response.StatusCode = 500;
 					httpContext.Response.ContentType = "text/json";
@@ -85,4 +90,3 @@ namespace LinkDev.Talabat.APIs.Controllers.Middlewares
 		}
 	}
 }
- 
