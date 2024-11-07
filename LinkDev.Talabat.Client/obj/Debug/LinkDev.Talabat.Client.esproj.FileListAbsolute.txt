@@ -1,0 +1,2 @@
+D:\Route\API\Session 01\LinkDev.Talabat\LinkDev.Talabat.Client\obj\Debug\LinkDev.Talabat.Client.esproj.CoreCompileInputs.cache
+D:\Route\API\Session 01 - Copy\LinkDev.Talabat\LinkDev.Talabat.Client\obj\Debug\LinkDev.Talabat.Client.esproj.CoreCompileInputs.cache

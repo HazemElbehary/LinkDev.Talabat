@@ -7,8 +7,14 @@ namespace LinkDev.Talabat.Core.Application.Abstraction.Services.Product
 	{
 		Task<Paginations<ProductToReturnDto>> GetProductsAsync(string? sort, int? brandId, int? categoryId, int pageSize, int pageIndex, string? search);
 		Task<ProductToReturnDto> GetProductAsync(int id);
+		Task AddProductAsync(CreateProductDto createdProduct);
+		Task UpdateProduct(UpdateProductDto product);
+		Task DeleteProduct(int id);
+
 
 		Task<IEnumerable<BrandToReturnDto>> GetBrandsAsync();
-		Task<IEnumerable<CategoryToReturnDto>> GetCategoriesAsync();
+		Task DeleteBrand(int id);
+
+        Task<IEnumerable<CategoryToReturnDto>> GetCategoriesAsync();
 	}
 }

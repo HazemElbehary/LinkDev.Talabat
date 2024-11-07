@@ -4,9 +4,9 @@ using LinkDev.Talabat.APIs.Extensions;
 using LinkDev.Talabat.APIs.LoggedInUserServices;
 using LinkDev.Talabat.Core.Application.Abstraction.LoggedInUserServices;
 using LinkDev.Talabat.Core.Application.DepaendancyInjection;
+using LinkDev.Talabat.Infrastructure;
 using LinkDev.Talabat.Core.Domain;
 using Microsoft.AspNetCore.Mvc;
-using LinkDev.Talabat.Infrastructure;
 namespace LinkDev.Talabat.APIs
 {
 	public class Program

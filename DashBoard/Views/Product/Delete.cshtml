@@ -1,0 +1,27 @@
+﻿@model ProductViewModel
+@{
+	ViewData["Title"] = "Delete Product";
+}
+
+<form method="post" class="form" enctype="multipart/form-data">
+	<partial name="CreateEditPartialView" model="@Model" />
+
+	<button asp-action="Delete" type="submit" class="btn btn-danger p-2 mt-3">Delete</button>
+	<button asp-action="Index" type="submit" class="btn btn-primary p-2 mt-3">Back To All Products</button>
+</form>
+
+<script> 
+	document.querySelectorAll('.form input, .form select').forEach(input => {
+		input.disabled = true;
+	});
+	document.getElementById("form").addEventListener("submit", function () {
+		let inputs = document.querySelectorAll("[disabled]");
+		inputs.forEach(input => input.removeAttribute("disabled"));
+	});
+</script>
+
+
+@section Scripts
+{
+	<partial name="_ValidationScriptsPartial" />
+}

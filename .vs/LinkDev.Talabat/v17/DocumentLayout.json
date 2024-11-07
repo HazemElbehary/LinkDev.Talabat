@@ -1,0 +1,95 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Route\\API\\Session 01 - Copy\\LinkDev.Talabat\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A6C88C8B-2801-4EC9-B0BF-2237591923AD}|DashBoard\\DashBoard.csproj|d:\\route\\api\\session 01 - copy\\linkdev.talabat\\dashboard\\views\\product\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A6C88C8B-2801-4EC9-B0BF-2237591923AD}|DashBoard\\DashBoard.csproj|solutionrelative:dashboard\\views\\product\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6C88C8B-2801-4EC9-B0BF-2237591923AD}|DashBoard\\DashBoard.csproj|d:\\route\\api\\session 01 - copy\\linkdev.talabat\\dashboard\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6C88C8B-2801-4EC9-B0BF-2237591923AD}|DashBoard\\DashBoard.csproj|solutionrelative:dashboard\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6C88C8B-2801-4EC9-B0BF-2237591923AD}|DashBoard\\DashBoard.csproj|d:\\route\\api\\session 01 - copy\\linkdev.talabat\\dashboard\\helper\\fileiohelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6C88C8B-2801-4EC9-B0BF-2237591923AD}|DashBoard\\DashBoard.csproj|solutionrelative:dashboard\\helper\\fileiohelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FileIOHelper.cs",
+              "DocumentMoniker": "D:\\Route\\API\\Session 01 - Copy\\LinkDev.Talabat\\DashBoard\\Helper\\FileIOHelper.cs",
+              "RelativeDocumentMoniker": "DashBoard\\Helper\\FileIOHelper.cs",
+              "ToolTip": "D:\\Route\\API\\Session 01 - Copy\\LinkDev.Talabat\\DashBoard\\Helper\\FileIOHelper.cs",
+              "RelativeToolTip": "DashBoard\\Helper\\FileIOHelper.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAABkAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T09:07:29.644Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "D:\\Route\\API\\Session 01 - Copy\\LinkDev.Talabat\\DashBoard\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "DashBoard\\Controllers\\ProductController.cs",
+              "ToolTip": "D:\\Route\\API\\Session 01 - Copy\\LinkDev.Talabat\\DashBoard\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "DashBoard\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAswHcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T07:28:43.682Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\Route\\API\\Session 01 - Copy\\LinkDev.Talabat\\DashBoard\\Views\\Product\\Delete.cshtml",
+              "RelativeDocumentMoniker": "DashBoard\\Views\\Product\\Delete.cshtml",
+              "ToolTip": "D:\\Route\\API\\Session 01 - Copy\\LinkDev.Talabat\\DashBoard\\Views\\Product\\Delete.cshtml",
+              "RelativeToolTip": "DashBoard\\Views\\Product\\Delete.cshtml",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAgwAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-30T09:13:14.731Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 464,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

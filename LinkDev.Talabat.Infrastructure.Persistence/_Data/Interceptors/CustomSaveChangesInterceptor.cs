@@ -26,12 +26,12 @@ namespace LinkDev.Talabat.Infrastructure.Persistence.Data.Interceptors
 				var entity = entry.Entity;
 				if (entry.State is EntityState.Added)
 				{
-					entity.CreatedBy = loggedInUserService.UserId!;
+					entity.CreatedBy = loggedInUserService.UserId ?? "1";
 					entity.CreatedOn = DateTime.UtcNow;
 				}
 
 				entity.LastModifiedOn = DateTime.UtcNow;
-				entity.LastModifiedBy = loggedInUserService.UserId!;
+				entity.LastModifiedBy = loggedInUserService.UserId ?? "1";
 			}
 		}
 	}

@@ -7,6 +7,7 @@ using LinkDev.Talabat.Core.Application.Services.Auth;
 using LinkDev.Talabat.Core.Application.Services.Basket;
 using LinkDev.Talabat.Core.Application.Services.ProductServiceNS;
 using LinkDev.Talabat.Core.Domain.NIUnitOfWork;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 
 namespace LinkDev.Talabat.Core.Application.Services
@@ -20,12 +21,12 @@ namespace LinkDev.Talabat.Core.Application.Services
 		private readonly Lazy<IAuthService> _authService;
 		private readonly Lazy<IProductService> _productService;
 
-        public ServiceManager(IUnitOfWork unitOfWork, IMapper mapper, IConfiguration configuration, Func<IBasketService> basketServiceFactry, Func<IAuthService> AuthServiceFactry)
+        public ServiceManager(IUnitOfWork unitOfWork, IMapper mapper, IConfiguration configuration, Func<IBasketService> basketServiceFactry, Func<IAuthService> AuthServiceFactry, IHttpContextAccessor httpContext)
         {
 			_mapper = mapper;
 			_configuration = configuration;
 			_unitOfWork = unitOfWork;
-			_productService = new Lazy<IProductService>(()=> new ProductService(unitOfWork, mapper));
+			_productService = new Lazy<IProductService>(()=> new ProductService(unitOfWork, mapper, httpContext));
 			_authService = new Lazy<IAuthService>(AuthServiceFactry);
 			_basketService = new Lazy<IBasketService>(basketServiceFactry);
 		}

@@ -18,9 +18,6 @@ namespace LinkDev.Talabat.Core.Domain.Data.Configurations
 
 			builder.Property(E => E.CreatedOn).IsRequired();
 
-			builder.Property(E => E.LastModifiedBy).IsRequired();
-
-			builder.Property(E => E.LastModifiedOn).IsRequired();
 		}
 	}
 }
